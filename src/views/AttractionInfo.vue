@@ -4,7 +4,7 @@
     <van-nav-bar
         left-arrow
         @click-left="goBack"
-        title="Attraction information"
+        title="Information"
     />
     <div class="info" v-html="attraction_info.info"></div>
   </div>
@@ -35,7 +35,6 @@ export default {
       const url = apis.attractionInfoUrl.replace('#{id}', this.id)
       ajax.get(url).then(({data}) => {
         this.attraction_info = data
-        console.log(data)
       }).catch(({error_message}) => {
         this.$notify(error_message)
       })

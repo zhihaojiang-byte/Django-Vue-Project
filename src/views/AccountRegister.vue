@@ -9,7 +9,7 @@
     />
     <!--    welcome text-->
     <div class="welcome">
-      Become a TravelAnywhere member.
+      Become a Fun Booking member.
     </div>
     <!--    form-->
     <van-form @submit="onSubmit" class="form">

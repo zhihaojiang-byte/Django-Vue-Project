@@ -56,7 +56,7 @@
             label="Telephone"
             placeholder="telephone"
         />
-        <van-submit-bar :price="order.purchase_amount * 100" currency = '$' button-text="Pay now"/>
+        <van-submit-bar :price="order.purchase_amount * 100" currency = '$' button-text="Pay now" style="max-width: 600px; left: 50%; translate: -50%"/>
       </van-form>
     </div>
   </div>
@@ -120,11 +120,7 @@ export default {
       })
     },
     onSubmit () {
-      console.log("all billing info are being sent to third party payment center")
       // TODO send user billing info and total amount to third party payment server;
-      // assume response with payment success, and return the third party paymentNumber
-      // const thirdPartyPaymentNumber = "12345678"
-
 
       ajax.post(apis.OrderDetailUrl.replace('#{sn}', this.order_sn)).then( () => {
         this.$notify({

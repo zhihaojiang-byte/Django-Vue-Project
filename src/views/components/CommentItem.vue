@@ -14,7 +14,7 @@
           fit="cover"
           :src="images.img_url"
       />
-      <van-image-preview v-model="show" :images="imageUrls" @change="onChange">
+      <van-image-preview v-model="show" :images="imageUrls" @change="onChange" closeable >
         <template v-slot:index>{{index + 1}} of {{imageUrls.length}}</template>
       </van-image-preview>
     </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
   name: "CommentItem",
   props: ['item'],

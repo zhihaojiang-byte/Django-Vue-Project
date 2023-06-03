@@ -2,18 +2,19 @@
   <div class="page-attraction-images">
     <!--    header-->
     <van-nav-bar
-        title="Attraction Images"
+        title="Images"
         left-arrow
         @click-left="goBack"
     />
     <div class="attraction-images">
       <van-image
           v-for="(images, i) in images" :key="i"
-          class="image" @click="handleImageClick"
+          class="image"
           fit="cover"
           :src="images.img_url"
           :alt="images.name"
       />
+
     </div>
 
   </div>
@@ -28,8 +29,6 @@ export default {
   name: "AttractionImages",
   data () {
     return {
-      show: false,
-      index: 0,
       images: [],
       attraction_id: '',
     }
@@ -46,6 +45,7 @@ export default {
       })
     },
   },
+
   created() {
     this.attraction_id = this.$route.params.id
     this.getAttractionImages()
@@ -60,9 +60,9 @@ export default {
     display: flex;
     flex-wrap: wrap;
     .image{
-      width: 150px;
+      width: 270px;
       height: 150px;
-      margin: 5px;
+      margin: 10px auto;
     }
   }
 }

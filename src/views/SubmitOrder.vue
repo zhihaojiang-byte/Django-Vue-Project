@@ -28,6 +28,7 @@
               closeable
               position="bottom"
               :style="{ height: '80%' }"
+              style="max-width: 600px; left: 50%; translate: -50%"
           >
            <div class="ticket-information">
              <div class="info"  v-if="ticket_info" v-html="ticket_info.info"></div>
@@ -51,7 +52,7 @@
             placeholder="Full Name"
             :rules="[{ required: true, message: 'Please input full name' }]"
         />
-        <van-submit-bar currency="$" :price="totalTicketPrice" button-text="Check out"/>
+        <van-submit-bar currency="$" :price="totalTicketPrice" button-text="Check out" style="max-width: 600px; left: 50%; translate: -50%"/>
       </van-form>
     </div>
 

@@ -3,7 +3,9 @@
 <!--    bannerSwipe form Vant UI-->
     <van-swipe class="my-swipe" :autoplay="3000" @change="onChange">
       <van-swipe-item v-for="item in swipeList" :key="item.id">
-        <img :src="item.img_url" :alt="item.name">
+        <a :href="item.target_url">
+          <img :src="item.img_url" :alt="item.name">
+        </a>
       </van-swipe-item>
       <template #indicator>
         <div class="custom-indicator">{{ current + 1 }}/{{swipeList.length}}</div>
@@ -60,5 +62,4 @@ export default {
     color: white;
   }
 }
-
 </style>

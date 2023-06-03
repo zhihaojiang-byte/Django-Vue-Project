@@ -4,7 +4,7 @@
     <van-nav-bar
         left-arrow
         @click-left="goBack"
-        title="Attraction comments"
+        title="Comments"
     />
 
     <CommentItem v-for="item in comment_list" :key="item.id" :item="item"/>

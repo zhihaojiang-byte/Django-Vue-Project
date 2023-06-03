@@ -17,7 +17,7 @@
     </van-tabs>
 <!--    order list-->
     <div class="order-list">
-      <div class="order-list-item" v-for="(order, index) in orderList" :key="index" v-show="order.sn">
+      <div class="order-list-item" v-for="(order, index) in orderList" :key="index">
         <div class="order-head">
           <div class="order-number">Order Number: {{order.sn}}</div>
           <div class="order-status">{{orderStatus[order.status]}}</div>
@@ -91,7 +91,7 @@ export default {
       this.getOrderList();
     },
     handleTabClick(tabName){
-      this.$router.replace({name: 'OrderList', params: {status: tabName}})
+      this.$router.replace({name: 'OrderList', params: {status: tabName}}).catch(()=>{})
     },
     handlePayBtn(order){
       this.$router.push({name: 'PayOrder', params: {sn: order.sn}})

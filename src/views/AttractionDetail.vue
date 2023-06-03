@@ -4,13 +4,13 @@
     <van-nav-bar
         left-arrow
         @click-left="goBack"
-        fixed
     />
 <!--    banner-img-->
     <router-link class="attraction-banner" :to="{name: 'AttractionImages', params: {id:id}}">
-      <van-image class="attraction-banner-img" :src="attraction_detail.banner_img_url"/>
+      <van-image class="attraction-banner-img" height="50vw" fit="cover" :src="attraction_detail.banner_img_url"/>
       <div class="img_text">
         <span class="name">{{attraction_detail.name}}</span>
+        <span class="image-count">view {{attraction_detail.images_count}} more images</span>
       </div>
     </router-link>
 <!--    info and rating-->
@@ -22,14 +22,12 @@
         </div>
         <div class="secondary">{{attraction_detail.comment_count}} ratings</div>
       </router-link>
-      <router-link class="attraction-item" :to="{name: 'AttractionInfo', params: {id: id}}">
-        <div class="right">
-          <div class="primary">
-            Information
-            <van-icon class="arrow" name="arrow" size="100%" />
-          </div>
-          <div class="secondary">check here for more details</div>
+      <router-link class="right" :to="{name: 'AttractionInfo', params: {id: id}}">
+        <div class="primary">
+          Information
+          <van-icon class="arrow" name="arrow" size="100%" />
         </div>
+        <div class="secondary">check here for more details</div>
       </router-link>
     </div>
 <!--    address-->
@@ -57,7 +55,8 @@
       </div>
     </div>
 <!--    attraction comment title-->
-    <van-cell class="attraction-comment-title" title="Comments" icon="comment-o" is-link value="leave your comment" @click="showPopup">
+    <van-cell class="attraction-comment-title" title="Comments" icon="comment-o" @click="showPopup">
+      <span style="color: orange; cursor: pointer">Leave a comment </span>
     </van-cell>
 <!--    leave your comment popup-->
     <van-popup
@@ -65,7 +64,9 @@
         v-model="show"
         closeable
         position="bottom"
-        :style="{ height: '65%' }">
+        :style="{ height: '60%'}"
+        style="max-width: 600px; left: 50%; translate: -50%"
+    >
       <van-form @submit="onSubmit">
         <van-field name="rate" label="Rate">
           <template #input>
@@ -218,13 +219,15 @@ export default {
 <style lang="less" scoped>
 .page-attraction-detail {
   .attraction-banner {
-    padding-top: 46px;
     display: grid;
     position: relative;
     .attraction-banner-img {
+      max-height: 300px;
       width: 100%;
     }
     .img_text {
+      display: flex;
+      justify-content: space-between;
       box-sizing: border-box;
       position: absolute;
       bottom: 0;
@@ -232,13 +235,16 @@ export default {
       width: 100%;
       height: 30px;
       color: white;
-      display: flex;
       padding: 0 16px;
       align-items: center;
+      .image-count{
+
+      }
     }
   }
   .attraction-info {
     display: flex;
+    justify-content: space-around;
     background: #fff;
     border-bottom: 1px solid #f6f6f6;
     .left, .right{

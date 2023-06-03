@@ -65,9 +65,9 @@ export default {
     this.is_popular = this.$route.query.is_popular
     this.is_recommended = this.$route.query.is_recommended
     if (this.is_popular) {
-      this.attraction_title = 'Popular attractions'
+      this.attraction_title = 'Popular'
     } else if(this.is_recommended) {
-      this.attraction_title = 'Recommended attractions'
+      this.attraction_title = 'Recommended'
     }
     this.getAttractionList()
   }

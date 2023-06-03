@@ -2,7 +2,7 @@
   <div class="page_search">
     <!--    search page header-->
     <van-nav-bar class="search-title"
-        title="Search Attractions"
+        title="Search"
     />
     <!--    search bar-->
     <form action="/" class="search-bar">
@@ -18,14 +18,14 @@
     </form>
     <!--    searched content-->
     <div class="attraction-list">
-      <div class="no-result" v-if="attractionList.length === 0">Sorry, no matching results.</div>
+      <div class="no-result" v-if="noResult">Sorry, no matching results.</div>
       <AttractionItem v-for="item in attractionList" :key="item.id" :item="item" />
     </div>
-    <van-pagination
-        v-model="currentPage"
-        :total-items="totalItems"
-        :items-per-page="itemsPerPage"
-        @change="onPageChange" />
+      <van-pagination
+          v-model="currentPage"
+          :total-items="totalItems"
+          :items-per-page="itemsPerPage"
+          @change="onPageChange" />
     <!--    footer bav bar-->
     <FooterBar :active="1" />
   </div>
@@ -51,6 +51,7 @@ export default {
       currentPage: 1,
       totalItems: 0,
       itemsPerPage: 5,
+      noResult: false,
     }
   },
   methods: {
@@ -64,6 +65,11 @@ export default {
       }).then(({data: {meta, object}}) => {
         this.totalItems = meta.total_count
         this.attractionList = object
+        if (this.attractionList.length === 0){
+          this.noResult = true
+        } else {
+          this.noResult = false
+        }
       }).catch(({error_message}) => {
         this.$notify(error_message)
       })
@@ -94,7 +100,7 @@ export default {
 
 <style lang="less" scoped>
 .page_search {
-  margin-bottom: 50px;
+  min-height: 100vh;
   .search-bar{
     margin-bottom: 15px;
   }

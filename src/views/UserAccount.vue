@@ -10,21 +10,22 @@
           :src=user.avatar
           fit="cover"
           @click="changeAvtar"
+          style="cursor: pointer"
       />
     </div>
     <div>
       <p>Welcome back, {{user.username}}</p>
-      <p><a @click="userLogout">Logout</a></p>
+      <p><a style="cursor: pointer" @click="userLogout">Logout</a></p>
     </div>
   </div>
 
   <div class="list">
 <!--    user profile-->
-    <div class="item" @click="showPopup">
+    <div class="item" style="cursor: pointer" @click="showPopup">
       <van-icon class="icon" name="user-circle-o" />
       <span>Profile</span>
     </div>
-    <van-popup class="popup" v-model="show" closeable position="bottom" :style="{ height: '20%' }">
+    <van-popup class="popup" v-model="show" closeable position="bottom" :style="{ height: '20%' }" style="max-width: 600px; left: 50%; translate: -50%">
       <van-field :value="user.username" label="Username" readonly />
       <van-field :value="user.email" label="Email" readonly />
     </van-popup>

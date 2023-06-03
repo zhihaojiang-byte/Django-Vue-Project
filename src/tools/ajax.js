@@ -35,7 +35,7 @@ ajax.interceptors.response.use(function (config) {
     return config
 }, function (error) {
     // things to do if there is response error
-    console.log(error)
+    // console.log(error)
     let error_message =""
     let status_code = 0
 

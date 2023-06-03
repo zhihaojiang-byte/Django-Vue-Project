@@ -1,6 +1,6 @@
 <template>
   <div class="copyright">
-    copyright TravelAnywhere &copy; 2023
+    copyright FunBooking &copy; 2023
   </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
   bottom: 50px;
   padding: 10px;
   color: #999;
-  width: 100%;
+  left: 50%;
+  translate: -50%;
   text-align: center;
   font-size: 12px;
 }

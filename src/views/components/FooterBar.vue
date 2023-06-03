@@ -1,7 +1,7 @@
 <template>
   <div class="footer-bar">
 <!--    a footer bar, user can easily switches between the most 3 frequently used page-->
-    <van-tabbar v-model="local_active">
+    <van-tabbar v-model="local_active" style="max-width: 600px; left: 50%; translate: -50%">
       <van-tabbar-item icon="home-o" :to="{name: 'home'}">Home</van-tabbar-item>
       <van-tabbar-item icon="search" :to="{name: 'search'}">Search</van-tabbar-item>
       <van-tabbar-item icon="user-o" :to="{name: 'UserAccount'}">Account</van-tabbar-item>
@@ -25,7 +25,4 @@ export default {
 </script>
 
 <style scoped>
-.footer-bar{
-  max-width: 800px;
-}
 </style>
